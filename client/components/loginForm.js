@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AuthForm from './authForm';
+import AuthForm from './AuthForm';
 import mutation from '../mutations/login';
 import query from '../queries/currentUser';
 import { graphql } from 'react-apollo';

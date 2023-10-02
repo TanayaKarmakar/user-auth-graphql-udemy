@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import mutation from '../mutations/signup';
 import query from '../queries/currentUser';
-import AuthForm from './authForm';
+import AuthForm from './AuthForm';
 import { hashHistory } from 'react-router';
 
 
@@ -45,4 +45,4 @@ class SignupForm extends Component {
 
 }
 
-export default graphql(mutation)(SignupForm);
+export default graphql(query)(graphql(mutation)(SignupForm));

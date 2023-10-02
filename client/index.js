@@ -2,10 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ApolloClient, {createNetworkInterface} from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
-import { Router, Route, hashHistory, IndexRoute } from 'react-router';
+import { Router, Route, hashHistory } from 'react-router';
 import App from './components/app';
-import LoginForm from './components/loginForm';
-import SignupForm from './components/signupForm';
+import LoginForm from './components/LoginForm';
+import SignupForm from './components/SignupForm';
+import DashBoard from './components/DashBoard';
+import requireAuth from './components/requireAuth';
 
 const networkInterface = createNetworkInterface({
   uri: '/graphql',
@@ -26,6 +28,7 @@ const Root = () => {
           <Route path = "/" component = {App}>
             <Route path = "login" component = {LoginForm}/>
             <Route path = "signup" component = {SignupForm}/>
+            <Route path = "dashboard" component = {requireAuth(DashBoard)}/>
           </Route>
        </Router>
     </ApolloProvider>
